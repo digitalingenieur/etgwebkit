@@ -10,6 +10,8 @@
 // VARIABLES
 @import "variables";
 
+//Third Party
+@import "../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 
 // MIXINS
 @import "mixins/general";
@@ -51,3 +53,5 @@
 @import "trumps/player";
 @import "trumps/slick";
 @import "trumps/headline-link";
+
+

@@ -21,6 +21,7 @@ var paths = {
     src: {
         styles:     'src/Resources/scss/etgwebkit.scss',
         scripts:    [
+                    'node_modules/smoothscroll-polyfill/dist/smoothscroll.js',
                     'node_modules/object-fit-images/dist/ofi.browser.js',
                     'src/Resources/js/**/*.js'
                     ],
@@ -34,8 +35,8 @@ var paths = {
         //fonts:      'dist/static/fonts'
     },
     watch: {
-        styles:     'src/scss/**/*.scss',
-        scripts:    'src/js/**/*.js',
+        styles:     'src/Resources/scss/**/*.scss',
+        scripts:    'src/Resources/js/**/*.js',
         //images:     'src/img/**/*'
     }
 };
@@ -102,7 +103,6 @@ gulp.task('serve', ['styles'], function() {
     });
 
     gulp.watch(paths.watch.styles,  ['styles']);
-    gulp.watch(paths.watch.templates).on('change', browserSync.reload);
     gulp.watch(paths.watch.scripts, ['scripts']).on('change', browserSync.reload);
 });
 

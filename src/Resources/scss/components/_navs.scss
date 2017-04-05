@@ -19,5 +19,130 @@
 @import "../../vendor/erdmannfreunde/euf_nutshell/files/nutshell/scss/components/navs";
 
 // --------------------------------------------------
+//TODO: Contao4 hack, not necessary if euf_nutshell will support Contao4
+.nav--horizontal{
+	strong.active,
+	strong.trail{
+		display: block;
+    	padding: ($nav--main__item-padding / 2) $nav--main__item-padding;
+	}
+}
+
+
+.nav{
+	strong{
+		font-weight: normal;
+	}
+}
+
 
 // PUT YOUR OWN STYLES HERE
+.hamburger{
+    right: 2rem;
+    position: absolute;
+    margin-top: -5rem;
+    outline: none;
+     @include media-query(screen-offcanvas) {
+        display: none;
+     }
+}
+
+.nav--header {
+    text-transform: uppercase;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+
+    a{
+        text-decoration: none;
+        position: relative;        
+    }
+
+    a:hover{
+        color: $color-gray;
+        transition: color 0.3s ease;
+    }
+
+    strong.submenu:after,
+    a.submenu:after{
+      border-left: 0.4rem solid transparent;
+      border-right: 0.4rem solid transparent;
+      border-top: 0.4rem solid $color-default;
+      content:"";
+      position: absolute;
+      margin-top: 1.4rem;
+      margin-left: 0.5rem;
+    }
+
+    strong.submenu:after,
+    strong.submenu:hover:after,
+    a.submenu:hover:after{
+      border-top: 0.4rem solid $color-gray;
+      
+    }
+
+
+    .level_2{
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease;
+        text-transform: none;
+    }
+
+    .submenu-active{    
+           border-top: 0.3rem solid $color-default; 
+    
+        .level_2{
+            max-height: 800px;
+           background-color: $color-gray-light;
+           transition: max-height 1s ease;
+           border-bottom: 0.3rem solid $color-default;
+        }
+    }
+}
+
+ @include media-query(screen-offcanvas) {
+    .nav--header{
+        text-align: left;
+        overflow: visible;
+        font-size: 0.9rem;
+        width: auto;
+        height: auto;
+        top: 0;
+        left: auto;
+        right: 0;
+        line-height: 5rem;
+
+        .level_2{
+            position: absolute;
+            z-index: 1000;
+            margin-top: -1rem;
+            margin-left: ($nav--main__item-padding);
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+            background-color: #fff;
+
+            li{
+                float: none;
+                line-height: 2rem;
+            }
+        }
+
+        .submenu:hover{
+            border-top: none;
+
+            .level_2{
+                max-height: 800px;
+                background-color: #fff;
+            }
+        }
+
+        .submenu-active{    
+           border-top: none; 
+    
+	        .level_2{
+	           background-color: #fff;
+	           border-bottom: 0.3rem solid $color-default;
+	        }
+    	}
+   	}  
+}
